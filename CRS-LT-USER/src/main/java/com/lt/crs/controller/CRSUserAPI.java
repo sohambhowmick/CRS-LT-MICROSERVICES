@@ -75,7 +75,10 @@ public class CRSUserAPI {
 	@GetMapping(value = "/verifyCreds")
 	public ResponseEntity<String> verifyCreds(@RequestParam("userId") int userId, @RequestParam("password") String password) throws SQLException {
 		try {
+			System.out.println("userId:"+userId);
+			System.out.println("password:"+password);
 			if(userInterface.verifyCredentials(userId, password)) {
+				System.out.println("inside if");
 				String role=userInterface.getRole(userId);
 				Role userRole=Role.stringToName(role);
 				

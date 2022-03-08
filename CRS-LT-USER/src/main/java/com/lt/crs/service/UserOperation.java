@@ -39,6 +39,10 @@ public class UserOperation implements UserInterface {
 	
 	@Override
 	public boolean verifyCredentials(int userID, String password) throws UserNotFoundException {
+		System.out.println("service");
+		System.out.println("userId:"+userID);
+		System.out.println("password:"+password);
+		System.out.println(userRepository.verifyCredentials(userID));
 		if((userRepository.verifyCredentials(userID)).equals(password))
 			return true;
 		return false;
