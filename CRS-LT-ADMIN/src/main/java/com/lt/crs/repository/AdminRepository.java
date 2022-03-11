@@ -63,8 +63,8 @@ public interface AdminRepository extends JpaRepository<Admin, Integer> {
 	@Query(value = "select * from Course where catalog_id = :catalogId", nativeQuery = true)
 	public List<Object[]> viewCourses(@Param("catalogId") int catalogId) throws SQLException;
 
-//	@Query("")
-//	public List<Professor> viewProfessors() throws SQLException;
+	@Query(value = "select user_name from user where role = 'PROFESSOR'", nativeQuery = true)
+	public List<String> viewProfessors() throws SQLException;
 }
 
 

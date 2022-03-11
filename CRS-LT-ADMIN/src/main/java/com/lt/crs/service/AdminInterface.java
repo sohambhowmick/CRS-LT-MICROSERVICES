@@ -47,7 +47,7 @@ public interface AdminInterface {
 	public List<Course> viewCourses(int catalogId) throws SQLException;
 	
 	
-//	public List<Professor> viewProfessors() throws SQLException;
+	public List<String> viewProfessors() throws SQLException;
 }
 
 

@@ -30,6 +30,7 @@ public class CRSProfessorAPI {
 
 	@GetMapping(value = "/getEnrolledStudents")
 	public List<EnrolledStudent> viewEnrolledStudents(@RequestParam("professorId") int profId) {
+		System.out.println(profId);
 		List<EnrolledStudent> students = new ArrayList<EnrolledStudent>();
 		try {
 			students = professorInterface.viewEnrolledStudents(profId);

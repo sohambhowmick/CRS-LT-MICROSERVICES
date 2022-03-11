@@ -119,15 +119,11 @@ public class AdminOperation implements AdminInterface{
 		return courseList;
 		
 	}
-//	
-//	@Override
-//	public List<Professor> viewProfessors() throws SQLException {
-//		
-//		return adminRepository.viewProfessors();
-//		
-//	}
-
-
+	
+	@Override
+	public List<String> viewProfessors() throws SQLException {
+		return adminRepository.viewProfessors();		
+	}
 	
 }
 

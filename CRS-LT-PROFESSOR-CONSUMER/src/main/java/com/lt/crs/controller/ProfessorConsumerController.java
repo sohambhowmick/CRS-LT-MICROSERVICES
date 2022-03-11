@@ -24,7 +24,7 @@ public class ProfessorConsumerController {
 	@GetMapping("/getEnrolledStudents")
 	public String viewEnrolledStudents(@RequestParam("professorId") int profId) throws RestClientException, IOException {
 		System.out.println("viewEnrolledStudents");
-		String baseUrl = "http://localhost:8093/professor/getEnrolledStudents?professorId="+profId;
+		String baseUrl = "http://localhost:8083/professor/getEnrolledStudents?professorId="+profId;
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response=null;
 		try{
@@ -38,7 +38,7 @@ public class ProfessorConsumerController {
 	
 	@GetMapping("/getCourses")
 	public String getCourses(@RequestParam("professorId") int profId) throws RestClientException, IOException {
-		String baseUrl = "http://localhost:8093/professor/getCourses?professorId="+profId;
+		String baseUrl = "http://localhost:8083/professor/getCourses?professorId="+profId;
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response=null;
 		try{
@@ -52,7 +52,7 @@ public class ProfessorConsumerController {
 	
 	@PutMapping("/addGrade")
 	public ResponseEntity<String> addGrade(@RequestParam("professorId") int profId, @RequestParam("studentId") int studentId, @RequestParam("courseCode") String courseCode, @RequestParam("grade") String grade) throws RestClientException, IOException {
-		String baseUrl = "http://localhost:8093/professor/addGrade?professorId="+profId+"&studentId="+studentId+"&courseCode="+courseCode+"&grade="+grade;
+		String baseUrl = "http://localhost:8083/professor/addGrade?professorId="+profId+"&studentId="+studentId+"&courseCode="+courseCode+"&grade="+grade;
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response=null;
 		try{

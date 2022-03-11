@@ -1,4 +1,4 @@
-package com.lt.crs.controller;
+package com.lt.crs.component;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,16 +12,21 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * 
+ * @author sohamslc
+ *
+ */
+
+@Component
 public class DiscoveryClass {
 
 	/**
-	 * 
 	 * This is used to autowire discoveryClient
-	 * 
 	 */
-
 	@Autowired
 	DiscoveryClient discoveryClient;
 
@@ -35,6 +40,9 @@ public class DiscoveryClass {
 		String baseUrl = serviceInstance.getUri().toString();
 
 		baseUrl = baseUrl + producerUrl;
+		System.out.println(
+				"***************************************************************************************************+"
+						+ baseUrl);
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -64,6 +72,7 @@ public class DiscoveryClass {
 
 	public ResponseEntity<String> discoveryResult(String clientName, String producerUrl, HttpMethod http) {
 
+		System.out.println("discoveryResult");
 		List<ServiceInstance> instances = discoveryClient.getInstances(clientName);
 
 		ServiceInstance serviceInstance = instances.get(0);
@@ -71,6 +80,7 @@ public class DiscoveryClass {
 		String baseUrl = serviceInstance.getUri().toString();
 
 		baseUrl = baseUrl + producerUrl;
+		System.out.println("baseUrl:"+baseUrl);
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -81,8 +91,6 @@ public class DiscoveryClass {
 			response = restTemplate.exchange(baseUrl, http, getHeaders(), String.class);
 
 		} catch (Exception ex) {
-
-			// TODO
 
 		}
 
@@ -97,4 +105,5 @@ public class DiscoveryClass {
 		return new HttpEntity<>(headers);
 
 	}
+
 }

@@ -181,14 +181,14 @@ public class CRSAdminAPI {
 	 * REST-service for getting all pending-approval of students
 	 * @return
 	 */
-//	@GetMapping("/viewAllProfessors")
-//	public List<Professor> viewAllProfessors() {
-//		try {
-//			System.out.println(adminOperation.viewPendingAdmissions());
-//			return adminOperation.viewProfessors();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+	@GetMapping("/viewAllProfessors")
+	public List<String> viewAllProfessors() {
+		try {
+			System.out.println(adminOperation.viewPendingAdmissions());
+			return adminOperation.viewProfessors();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -81,7 +81,6 @@ public class CRSUserAPI {
 				System.out.println("inside if");
 				String role=userInterface.getRole(userId);
 				Role userRole=Role.stringToName(role);
-				
 				switch (userRole) {
 				case STUDENT:
 					int studentId=studentInterface.getStudentById(userId).getStudentId();
@@ -89,7 +88,7 @@ public class CRSUserAPI {
 						return new ResponseEntity<String>("Logged in successfully as STUDENT", HttpStatus.OK);
 					break;
 				}
-				return new ResponseEntity<String>("Logged in successfully as STUDENT", HttpStatus.OK);
+				return new ResponseEntity<String>("Logged in successfully as PROFESSOR", HttpStatus.OK);
 			}
 			else
 				return new ResponseEntity<String>("User ID/Password is incorrect", HttpStatus.NOT_FOUND);
